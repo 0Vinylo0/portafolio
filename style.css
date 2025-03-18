@@ -1,0 +1,272 @@
+/* Estilos base */
+body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1a73e8, #0f53b5);
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden; /* Correcto, permite scroll vertical */
+    min-height: 100vh; /* Asegura que cubra toda la altura */
+    position: relative; /* Añadido para compatibilidad */
+}
+.section {
+    width: 100vw;
+    min-height: 100vh; /* Cambiado a min-height para permitir contenido dinámico */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0; /* Añadido padding para mejor espaciado */
+    box-sizing: border-box;
+}
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 10px 20px;
+    line-height: 1.6;
+}
+.command {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #76ff03;
+    font-size: 1.2rem;
+}
+.cursor {
+    display: inline-block;
+    width: 5px;
+    height: 1rem;
+    background-color: #76ff03;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.links {
+    margin-top: 20px;
+}
+.links a {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+.links a:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Sección de proyectos */
+.projects {
+    width: 100vw;
+    min-height: 100vh; /* Cambiado a min-height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(to bottom, #0f53b5, #1a73e8);
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 100px;
+    gap: 20px;
+    width: 80vw;
+    height: 80vh;
+    padding: 20px;
+    justify-items: start;
+    align-items: start;
+}
+.project a {
+    color: #76ff03;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el rocket y partículas */
+.rocket {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 2rem;
+    position: relative;
+    margin-left: 10px;
+    transform: rotate(-90deg);
+}
+.particles {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: orange;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+@keyframes moveRocket {
+    0% { transform: translate(0, 0) rotate(-90deg); }
+    100% { transform: translate(0, -500px) rotate(-90deg); opacity: 0; }
+}
+@keyframes particlesAnimation {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2) translate(0px, 30px); }
+}
+
+/* Estilos para las partículas de emojis */
+.particle {
+    position: fixed; /* Cambiado a fixed para que funcione en toda la página */
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    user-select: none;
+    pointer-events: none; /* Evita que las partículas interfieran con clics */
+    z-index: 9999; /* Asegura que las partículas estén por encima de otros elementos */
+}
+
+/* Swiper slider */
+.swiper {
+    width: 400px;              /* Ancho fijo del contenedor */
+    max-width: 90vw;           /* Limita el ancho en pantallas pequeñas */
+    margin: 20px auto;         /* Margen para espaciado */
+    overflow: hidden;          /* Oculta cualquier contenido fuera del contenedor */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-wrapper {
+    transition-timing-function: ease; /* Transición suave */
+}
+
+.swiper-slide {
+    width: 100% !important;    /* Ocupa todo el ancho del contenedor */
+    flex-shrink: 0 !important; /* Evita que el slide se comprima */
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 40px 20px;        /* Espaciado interno para el texto */
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 20px;
+    color: #76ff03;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;          /* Oculta cualquier texto que se desborde */
+    white-space: normal;       /* Permite que el texto se ajuste en varias líneas si es necesario */
+    word-wrap: break-word;     /* Rompe palabras largas si es necesario */
+    box-sizing: border-box;    /* Incluye el padding en el cálculo del tamaño */
+}
+
+/* Sección de contacto */
+#contacto {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #0f53b5, #1a73e8);
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+#contacto h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+#contacto p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 10px 20px;
+    line-height: 1.6;
+}
+#contact-form input,
+#contact-form textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+    max-width: 100%;
+}
+#contact-form textarea {
+    height: 100px;
+}
+#contact-form button {
+    padding: 10px 20px;
+    background: #76ff03;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botón de modo oscuro */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #76ff03;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modo oscuro */
+body.dark {
+    background: #1a1a1a;
+    color: #fff;
+}
+body.dark .projects {
+    background: #333;
+}
+body.dark .project a {
+    color: #76ff03;
+}
+body.dark .links a {
+    background: rgba(255, 255, 255, 0.1);
+}
+body.dark .swiper-slide {
+    background: rgba(255, 255, 255, 0.1);
+}
+body.dark #contacto {
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+}
+body.dark #contacto h1,
+body.dark #contacto p {
+    color: #fff;
+}
+body.dark #contact-form input,
+body.dark #contact-form textarea {
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+body.dark #contact-form button {
+    background: #76ff03;
+    color: #fff;
+}

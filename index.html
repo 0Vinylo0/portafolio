@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0Vinylo0</title>
+    <!-- Librerías externas -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Nuestro CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sección Home -->
+    <div class="section" id="home" data-aos="fade-up">
+        <img src="https://github.com/0Vinylo0.png" alt="Perfil" class="profile-img">
+        <h1>Hola, soy 0Vinylo0 <span id="rocket" class="rocket">🚀</span></h1>
+        <p>Administrador de sistemas, desarrollador y entusiasta de la ciberseguridad. Me especializo en la automatización de servidores, despliegue de infraestructura y programación eficiente. Siempre buscando nuevos retos y aprendiendo tecnologías innovadoras. 💻🔐</p>
+        <div class="command" id="typing-box"></div>
+        <!-- Slider de habilidades (Swiper) -->
+        <div class="swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Administración de sistemas</div>
+                <div class="swiper-slide">Desarrollo</div>
+                <div class="swiper-slide">Ciberseguridad</div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="links">
+            <a href="https://github.com/0Vinylo0" target="_blank">🌟 GitHub</a>
+            <a href="#proyectos">📂 Mis Proyectos</a>
+            <a href="#contacto">📧 Contacto</a>
+        </div>
+    </div>
+
+    <!-- Sección Proyectos -->
+    <div class="projects" id="proyectos" data-aos="fade-up">
+        <h1>Mis Proyectos 📂</h1>
+        <ul class="project-container links">
+            <li><a href="https://github.com/0Vinylo0/my-script/" target="_blank">🔗 My Script</a></li>
+            <li><a href="https://github.com/0Vinylo0/Iterando-Pares" target="_blank">🔗 Iterando Pares</a></li>
+            <li><a href="https://github.com/0Vinylo0/Iterando-Pares-Docker" target="_blank">🔗 Iterando Pares Docker</a></li>
+        </ul>
+    </div>
+
+    <!-- Sección Contacto -->
+    <div id="contacto" data-aos="fade-up">
+        <h1>Contacto 📧</h1>
+        <p>¡Envíame un mensaje si quieres colaborar o charlar sobre tecnología!</p>
+        <form id="contact-form">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Botón de modo oscuro -->
+    <button id="theme-toggle">🌙 Modo Oscuro</button>
+
+    <!-- Scripts externos -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Nuestro JS -->
+    <script src="script.js"></script>
+</body>
+</html>
