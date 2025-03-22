@@ -1,28 +1,44 @@
-// Efecto de tipeo
-const command = "git clone https://github.com/0Vinylo0";
+// Lista de comandos para el efecto de tipeo
+const commands = [
+    "git clone https://github.com/0Vinylo0",
+    "useradd -g sudoers -d /home/0Vinylo0 -s /bin/zsh -p $(openssl passwd -6 -salt 4dm1n) 0Vinylo0",
+    "docker run -d -p 80:80 nginx",
+    "python3 -m venv myenv && source myenv/bin/activate",
+    "nmap -sV -p 22,80,443 192.168.1.1",
+    "aws s3 sync ./myfolder s3://mybucket"
+];
+
 const typingBox = document.getElementById("typing-box");
-let index = 0;
+let commandIndex = 0; // Índice del comando actual
+let charIndex = 0;   // Índice del carácter actual
 let isDeleting = false;
+
 function typeEffect() {
-    let text = command.slice(0, index);
+    const currentCommand = commands[commandIndex];
+    let text = currentCommand.slice(0, charIndex);
+    
+    // Solo mostramos el texto que se está escribiendo o borrando
     typingBox.innerHTML = text + '<span class="cursor"></span>';
+
     if (!isDeleting) {
-        index++;
-        if (index > command.length) {
+        charIndex++;
+        if (charIndex > currentCommand.length) {
             isDeleting = true;
-            setTimeout(typeEffect, 2000);
+            setTimeout(typeEffect, 1500); // Pausa antes de borrar
             return;
         }
     } else {
-        index--;
-        if (index < 0) {
+        charIndex--;
+        if (charIndex < 0) {
+            // Cambiamos al siguiente comando solo después de borrar completamente
             isDeleting = false;
-            index = 0;
-            setTimeout(typeEffect, 500);
+            commandIndex = (commandIndex + 1) % commands.length;
+            charIndex = 0; // Reiniciamos charIndex
+            setTimeout(typeEffect, 500); // Pausa antes de escribir el siguiente
             return;
         }
     }
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
+    setTimeout(typeEffect, isDeleting ? 50 : 100); // Velocidad de borrado/escritura
 }
 typeEffect();
 
@@ -63,13 +79,13 @@ function createParticle(x, y) {
     const particle = document.createElement('div');
     particle.classList.add('particle');
     particle.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    document.body.appendChild(particle); // Añadimos las partículas al body directamente
+    document.body.appendChild(particle);
 
     const size = Math.random() * 15 + 20;
     particle.style.fontSize = `${size}px`;
     particle.style.left = `${x}px`;
     particle.style.top = `${y}px`;
-    particle.style.position = 'fixed'; // Usamos posición fija para que siga el cursor en toda la página
+    particle.style.position = 'fixed';
 
     const angle = Math.random() * Math.PI * 2;
     const distance = Math.random() * 30 + 10;
@@ -82,6 +98,7 @@ function createParticle(x, y) {
         setTimeout(() => particle.remove(), 1500);
     }, 50);
 }
+
 // Inicialización del slider Swiper
 new Swiper('.swiper', {
     loop: true,
@@ -89,15 +106,14 @@ new Swiper('.swiper', {
         delay: 2500,
         disableOnInteraction: false
     },
-    slidesPerView: 1,          // Solo un slide visible a la vez
-    spaceBetween: 0,           // Sin espacio entre slides
-    centeredSlides: true,      // Centra el slide activo
-    allowTouchMove: false,     // Desactiva el arrastre manual
-    speed: 500,                // Velocidad de transición más suave
-    effect: 'slide',           // Efecto de transición simple
-    watchOverflow: true        // Evita problemas si hay menos slides de los esperados
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    allowTouchMove: false,
+    speed: 500,
+    effect: 'slide',
+    watchOverflow: true
 });
-
 
 // Inicialización de AOS
 AOS.init();
@@ -109,16 +125,8 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
     btn.textContent = document.body.classList.contains("dark") ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
 });
 
-// Inicialización de EmailJS y manejo del formulario de contacto
-emailjs.init("YOUR_USER_ID"); // Reemplaza con tu ID de EmailJS
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-        .then(() => alert("¡Mensaje enviado!"), (err) => alert("Error al enviar: " + JSON.stringify(err)));
-});
-
 // Lista de secciones a recorrer
-const sectionIds = ["home", "proyectos", "contacto"];
+const sectionIds = ["home", "proyectos", "skills", "contacto"];
 let currentSectionIndex = 0;
 let isScrolling = false;
 
@@ -128,7 +136,7 @@ function scrollToSection(index) {
         if (section) {
             isScrolling = true;
             window.scrollTo({
-                top: section.offsetTop - 20, // Ajusta si quieres más o menos separación
+                top: section.offsetTop - 20,
                 behavior: "smooth"
             });
             currentSectionIndex = index;
@@ -141,18 +149,13 @@ function scrollToSection(index) {
 
 // Escucha la rueda del ratón
 window.addEventListener("wheel", (event) => {
-    // Evita el scroll nativo
     event.preventDefault();  
-    
-    // Verifica si estamos en medio de un desplazamiento
     if (isScrolling) return;
 
-    // Si rueda hacia abajo (deltaY > 0) y no estamos en la última sección
     if (event.deltaY > 0 && currentSectionIndex < sectionIds.length - 1) {
         currentSectionIndex++;
         scrollToSection(currentSectionIndex);
     }
-    // Si rueda hacia arriba (deltaY < 0) y no estamos en la primera sección
     else if (event.deltaY < 0 && currentSectionIndex > 0) {
         currentSectionIndex--;
         scrollToSection(currentSectionIndex);
