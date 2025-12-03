@@ -1,4 +1,7 @@
-// Lista de comandos para el efecto de tipeo
+// ===================================
+// EFECTO DE TIPEO EN TERMINAL
+// ===================================
+
 const commands = [
     "git clone https://github.com/0Vinylo0",
     "useradd -g sudoers -d /home/0Vinylo0 -s /bin/zsh -p $(openssl passwd -6 -salt 4dm1n) 0Vinylo0",
@@ -9,70 +12,95 @@ const commands = [
 ];
 
 const typingBox = document.getElementById("typing-box");
-let commandIndex = 0; // Índice del comando actual
-let charIndex = 0;   // Índice del carácter actual
+let commandIndex = 0;
+let charIndex = 0;
 let isDeleting = false;
 
 function typeEffect() {
     const currentCommand = commands[commandIndex];
     let text = currentCommand.slice(0, charIndex);
-    
-    // Solo mostramos el texto que se está escribiendo o borrando
+
     typingBox.innerHTML = text + '<span class="cursor"></span>';
 
     if (!isDeleting) {
         charIndex++;
         if (charIndex > currentCommand.length) {
             isDeleting = true;
-            setTimeout(typeEffect, 1500); // Pausa antes de borrar
+            setTimeout(typeEffect, 1500);
             return;
         }
     } else {
         charIndex--;
         if (charIndex < 0) {
-            // Cambiamos al siguiente comando solo después de borrar completamente
             isDeleting = false;
             commandIndex = (commandIndex + 1) % commands.length;
-            charIndex = 0; // Reiniciamos charIndex
-            setTimeout(typeEffect, 500); // Pausa antes de escribir el siguiente
+            charIndex = 0;
+            setTimeout(typeEffect, 500);
             return;
         }
     }
-    setTimeout(typeEffect, isDeleting ? 50 : 100); // Velocidad de borrado/escritura
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
+
+// Iniciar el efecto de tipeo
 typeEffect();
 
-// Animación del rocket y generación de partículas
-document.getElementById("rocket").addEventListener("click", function() {
+// ===================================
+// ANIMACIÓN DEL COHETE Y PARTÍCULAS
+// ===================================
+
+document.getElementById("rocket").addEventListener("click", function () {
     let rocket = this;
     rocket.style.animation = "moveRocket 2s linear forwards";
+    
     let interval = setInterval(() => generateParticles(rocket), 50);
+    
     setTimeout(() => {
         clearInterval(interval);
         rocket.style.display = "none";
+        
+        // Reaparecer el cohete después de 3 segundos
+        setTimeout(() => {
+            rocket.style.display = "inline-block";
+            rocket.style.animation = "none";
+        }, 3000);
     }, 2000);
 });
+
 function generateParticles(rocket) {
     for (let i = 0; i < 5; i++) {
         let particle = document.createElement("div");
         particle.classList.add("particles");
         document.body.appendChild(particle);
+        
         let rect = rocket.getBoundingClientRect();
         let x = rect.left + rect.width / 2 + (Math.random() * 10 - 5);
         let y = rect.top + rect.height + Math.random() * 10;
+        
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
         particle.style.animation = `particlesAnimation 1s linear forwards`;
+        
         setTimeout(() => {
             particle.remove();
         }, 1000);
     }
 }
 
-// Partículas con emojis al mover el mouse
+// ===================================
+// PARTÍCULAS CON EMOJIS AL MOVER EL MOUSE
+// ===================================
+
 const emojis = ['✨', '🔥', '💫', '🌟', '🎶', '🌀'];
+let lastParticleTime = 0;
+const particleDelay = 100; // Milisegundos entre partículas
+
 document.addEventListener('mousemove', (e) => {
-    if (Math.random() < 0.3) createParticle(e.clientX, e.clientY);
+    const currentTime = Date.now();
+    if (currentTime - lastParticleTime > particleDelay && Math.random() < 0.3) {
+        createParticle(e.clientX, e.clientY);
+        lastParticleTime = currentTime;
+    }
 });
 
 function createParticle(x, y) {
@@ -85,10 +113,9 @@ function createParticle(x, y) {
     particle.style.fontSize = `${size}px`;
     particle.style.left = `${x}px`;
     particle.style.top = `${y}px`;
-    particle.style.position = 'fixed';
 
     const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 30 + 10;
+    const distance = Math.random() * 40 + 20;
     const offsetX = Math.cos(angle) * distance;
     const offsetY = Math.sin(angle) * distance;
 
@@ -99,7 +126,10 @@ function createParticle(x, y) {
     }, 50);
 }
 
-// Inicialización del slider Swiper
+// ===================================
+// INICIALIZACIÓN DEL SLIDER SWIPER
+// ===================================
+
 new Swiper('.swiper', {
     loop: true,
     autoplay: {
@@ -110,54 +140,172 @@ new Swiper('.swiper', {
     spaceBetween: 0,
     centeredSlides: true,
     allowTouchMove: false,
-    speed: 500,
+    speed: 600,
     effect: 'slide',
     watchOverflow: true
 });
 
-// Inicialización de AOS
-AOS.init();
+// ===================================
+// INICIALIZACIÓN DE AOS (ANIMATE ON SCROLL)
+// ===================================
 
-// Modo oscuro
-document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const btn = document.getElementById("theme-toggle");
-    btn.textContent = document.body.classList.contains("dark") ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
 });
 
-// Lista de secciones a recorrer
-const sectionIds = ["home", "proyectos", "skills", "contacto"];
-let currentSectionIndex = 0;
-let isScrolling = false;
+// ===================================
+// MODO OSCURO
+// ===================================
 
-function scrollToSection(index) {
-    if (index >= 0 && index < sectionIds.length) {
-        const section = document.getElementById(sectionIds[index]);
-        if (section) {
-            isScrolling = true;
-            window.scrollTo({
-                top: section.offsetTop - 20,
-                behavior: "smooth"
-            });
-            currentSectionIndex = index;
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Cargar preferencia guardada
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark');
+    themeToggle.textContent = "☀️ Modo Claro";
+}
+
+themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    
+    themeToggle.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+    
+    // Guardar preferencia
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// ===================================
+// NAVEGACIÓN SUAVE POR SECCIONES
+// ===================================
+
+// Función para scroll suave a una sección
+function smoothScrollTo(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const offsetTop = element.offsetTop;
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Manejar clics en enlaces de navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        smoothScrollTo(targetId);
+    });
+});
+
+// ===================================
+// DETECCIÓN DE SECCIÓN ACTIVA (OPCIONAL)
+// ===================================
+
+const sections = document.querySelectorAll('.section');
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Aquí puedes añadir lógica adicional cuando una sección es visible
+            // Por ejemplo, actualizar la navegación activa
+            const sectionId = entry.target.id;
+            console.log(`Sección visible: ${sectionId}`);
+        }
+    });
+}, observerOptions);
+
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// ===================================
+// MEJORAS DE RENDIMIENTO
+// ===================================
+
+// Throttle para eventos de scroll (si lo necesitas en el futuro)
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
     }
 }
 
-// Escucha la rueda del ratón
-window.addEventListener("wheel", (event) => {
-    event.preventDefault();  
-    if (isScrolling) return;
+// ===================================
+// NAVEGACIÓN POR TECLADO (ACCESIBILIDAD)
+// ===================================
 
-    if (event.deltaY > 0 && currentSectionIndex < sectionIds.length - 1) {
-        currentSectionIndex++;
-        scrollToSection(currentSectionIndex);
+document.addEventListener('keydown', (e) => {
+    // Flecha abajo: ir a la siguiente sección
+    if (e.key === 'ArrowDown' && e.ctrlKey) {
+        e.preventDefault();
+        const currentScroll = window.scrollY;
+        let nextSection = null;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (sectionTop > currentScroll + 100 && !nextSection) {
+                nextSection = section;
+            }
+        });
+        
+        if (nextSection) {
+            smoothScrollTo(nextSection.id);
+        }
     }
-    else if (event.deltaY < 0 && currentSectionIndex > 0) {
-        currentSectionIndex--;
-        scrollToSection(currentSectionIndex);
+    
+    // Flecha arriba: ir a la sección anterior
+    if (e.key === 'ArrowUp' && e.ctrlKey) {
+        e.preventDefault();
+        const currentScroll = window.scrollY;
+        let prevSection = null;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (sectionTop < currentScroll - 100) {
+                prevSection = section;
+            }
+        });
+        
+        if (prevSection) {
+            smoothScrollTo(prevSection.id);
+        }
     }
-}, { passive: false });
+});
+
+// ===================================
+// MENSAJE DE BIENVENIDA EN CONSOLA
+// ===================================
+
+console.log(`
+╔═══════════════════════════════════════════════╗
+║                                               ║
+║   👋 Hola! Bienvenido a mi portafolio        ║
+║                                               ║
+║   🚀 GitHub: https://github.com/0Vinylo0     ║
+║   📧 Email: andresdelpino2002@gmail.com      ║
+║                                               ║
+║   Si estás revisando el código, ¡genial!     ║
+║   No dudes en contactarme si tienes          ║
+║   alguna pregunta o propuesta.               ║
+║                                               ║
+╚═══════════════════════════════════════════════╝
+`);

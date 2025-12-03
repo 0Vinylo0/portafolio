@@ -3,156 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0Vinylo0</title>
+    <title>0Vinylo0 - Administrador de sistemas y desarrollador</title>
+
+    <!-- Meta información para SEO y calidad de contenido -->
+    <meta name="description" content="Portafolio de 0Vinylo0, administrador de sistemas y desarrollador. Proyectos de automatización, scraping, despliegue de infraestructuras, Docker, Linux y más.">
+    <meta name="keywords" content="0Vinylo0, administrador de sistemas, devops, python, docker, linux, scraping, infraestructura, ciberseguridad">
+    <meta name="author" content="0Vinylo0">
+
     <!-- Librerías externas -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
     <!-- Nuestro CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Sección Home -->
     <div class="section" id="home" data-aos="fade-up">
-        <img src="https://github.com/0Vinylo0.png" alt="Perfil" class="profile-img">
-        <h1>Hola, soy 0Vinylo0 <span id="rocket" class="rocket">🚀</span></h1>
-        <p>Administrador de sistemas, desarrollador y entusiasta de la ciberseguridad. Me especializo en la automatización de servidores, despliegue de infraestructura y programación eficiente. Siempre buscando nuevos retos y aprendiendo tecnologías innovadoras. 💻🔐</p>
-        <div class="command" id="typing-box"></div>
-        <!-- Slider de habilidades (Swiper) -->
-        <div class="swiper" data-aos="fade-up">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">Administración de sistemas</div>
-                <div class="swiper-slide">Desarrollo</div>
-                <div class="swiper-slide">Ciberseguridad</div>
+        <div class="content-wrapper">
+            <img src="https://github.com/0Vinylo0.png" alt="Perfil 0Vinylo0" class="profile-img">
+            <h1>Hola, soy 0Vinylo0 <span id="rocket" class="rocket">🚀</span></h1>
+            <p class="intro-text">
+                Administrador de sistemas, desarrollador y entusiasta de la ciberseguridad.
+                Me especializo en automatización de servidores, despliegue de infraestructura,
+                observabilidad y programación eficiente en entornos Linux y cloud.
+            </p>
+            <p class="intro-text">
+                Disfruto diseñando soluciones reproducibles: desde scripts que se ejecutan solos en segundo plano
+                hasta plataformas completas montadas con contenedores, balanceadores, monitoreo y alertas.
+                En este portafolio encontrarás algunos de mis proyectos reales y las tecnologías que utilizo a diario.
+            </p>
+
+            <div class="command" id="typing-box"></div>
+
+            <!-- Slider de habilidades (Swiper) -->
+            <div class="swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Automatización y scripting en Linux</div>
+                    <div class="swiper-slide">Despliegue de servicios con Docker y contenedores</div>
+                    <div class="swiper-slide">Monitorización, métricas y observabilidad</div>
+                    <div class="swiper-slide">Infraestructura reproducible y despliegues automatizados</div>
+                </div>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <div class="links">
+                <a href="#sobre-mi">👤 Sobre mí</a>
+                <a href="#proyectos">📂 Mis Proyectos</a>
+                <a href="#skills">🛠️ Habilidades</a>
+                <a href="#contacto">📧 Contacto</a>
+                <a href="https://github.com/0Vinylo0" target="_blank" rel="noopener noreferrer">🌟 GitHub</a>
+            </div>
         </div>
-        <div class="links">
-            <a href="https://github.com/0Vinylo0" target="_blank">🌟 GitHub</a>
-            <a href="#proyectos">📂 Mis Proyectos</a>
-            <a href="#skills">🛠️ Habilidades</a>
-            <a href="#contacto">📧 Contacto</a>
+    </div>
+
+    <!-- Sección Sobre mí -->
+    <div class="section about" id="sobre-mi" data-aos="fade-up">
+        <div class="content-wrapper">
+            <h1>Sobre mí 👤</h1>
+            <div class="about-content">
+                <p>
+                    Empecé trasteando con ordenadores por curiosidad y acabé administrando servidores Linux,
+                    montando servicios web y automatizando tareas repetitivas. Me gusta entender cómo funciona
+                    todo "por debajo": redes, sistemas operativos, contenedores, métricas y seguridad.
+                </p>
+                <p>
+                    Suelo trabajar con <strong>Python</strong> para automatización y desarrollo de herramientas,
+                    <strong>Bash</strong> para scripts rápidos y <strong>Docker</strong> para desplegar entornos
+                    aislados y reproducibles. Me interesa especialmente la combinación de
+                    <strong>administración de sistemas + desarrollo</strong>, es decir, ser capaz de
+                    diseñar, desplegar y mantener una solución de principio a fin.
+                </p>
+                <p class="methodology-intro">A nivel de metodología, doy mucha importancia a:</p>
+                <ul class="about-list">
+                    <li><strong>Documentar</strong> lo que hago para que otros puedan entenderlo y reutilizarlo.</li>
+                    <li><strong>Automatizar</strong> tareas manuales y repetitivas para reducir errores.</li>
+                    <li><strong>Monitorizar</strong> servicios con métricas, logs y alertas claras.</li>
+                    <li><strong>Seguridad y buenas prácticas</strong> en red, permisos y exposición de servicios.</li>
+                </ul>
+                <p>
+                    Me motiva especialmente participar en proyectos donde pueda aportar estabilidad a la
+                    infraestructura, mejorar tiempos de despliegue y simplificar el mantenimiento del día a día.
+                </p>
+            </div>
         </div>
     </div>
 
     <!-- Sección Proyectos -->
-    <div class="projects" id="proyectos" data-aos="fade-up">
-        <h1>Mis Proyectos 📂</h1>
-        <p>Explora algunos de mis trabajos alojados en GitHub.</p>
-        <div class="projects-container">
-            <a href="https://github.com/0Vinylo0/my-script" target="_blank" class="project-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="github" width="40" height="40"/>
-                <div class="project-info">
-                    <strong>My Script</strong>
-                    <span>Sincroniza automáticamente scripts locales con GitHub usando Python y cron cada minuto.</span>
-                </div>
-            </a>
-            <a href="https://github.com/0Vinylo0/Iterando-Pares" target="_blank" class="project-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="github" width="40" height="40"/>
-                <div class="project-info">
-                    <strong>Iterando Pares</strong>
-                    <span>Script en Python para hacer scraping de datos e imágenes desde el portal PARES.</span>
-                </div>
-            </a>
-            <a href="https://github.com/0Vinylo0/Iterando-Pares-Docker" target="_blank" class="project-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="github" width="40" height="40"/>
-                <div class="project-info">
-                    <strong>Iterando Pares Docker</strong>
-                    <span>Versión Dockerizada del scraper de PARES con Redis y Tor para anonimato y gestión de URLs.</span>
-                </div>
-            </a>
-            <a href="https://github.com/0Vinylo0/proyecto_mercantil_marker" target="_blank" class="project-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="github" width="40" height="40"/>
-                <div class="project-info">
-                    <strong>Proyecto Mercantil Marker</strong>
-                    <span>Script con rclone y Marker para convertir y sincronizar archivos con Dropbox.</span>
-                </div>
-            </a>
+    <div class="section projects" id="proyectos" data-aos="fade-up">
+        <div class="content-wrapper">
+            <h1>Mis Proyectos 📂</h1>
+            <p class="section-description">
+                Estos son algunos proyectos que he desarrollado y mantengo en GitHub. Todos surgen de
+                necesidades reales: automatizar tareas, procesar grandes volúmenes de datos o facilitar
+                el despliegue de servicios. Cada repositorio incluye código, documentación y ejemplos de uso.
+            </p>
+
+            <div class="projects-container">
+                <a href="https://tools.0vinylo0.xyz" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-icon">
+                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="Tools Web" width="50" height="50"/>
+                    </div>
+                    <div class="project-info">
+                        <strong>Tools 0Vinylo0</strong>
+                        <span>
+                            Colección de herramientas web que uso y mantengo para tareas de administración, 
+                            automatización y utilidades del día a día. Incluye utilidades para redes, gestión 
+                            de archivos, pruebas de servicios y pequeños paneles creados a medida.
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/0Vinylo0/my-script" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-icon">
+                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio My Script" width="50" height="50"/>
+                    </div>
+                    <div class="project-info">
+                        <strong>My Script</strong>
+                        <span>
+                            Herramienta en Python pensada para mantener sincronizados scripts locales con GitHub.
+                            Permite subir cambios de forma automatizada usando cron, registrar ejecuciones y
+                            tener siempre una copia de respaldo del código que utilizo en servidores y entornos de pruebas.
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/0Vinylo0/Iterando-Pares" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-icon">
+                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Iterando Pares" width="50" height="50"/>
+                    </div>
+                    <div class="project-info">
+                        <strong>Iterando Pares</strong>
+                        <span>
+                            Scraper avanzado desarrollado en Python para extraer información e imágenes del portal PARES.
+                            Incluye control de errores, paginación, almacenamiento de resultados y lógica específica
+                            para recorrer enlaces relacionados. Está pensado para trabajos de análisis y archivística.
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/0Vinylo0/Iterando-Pares-Docker" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="project-icon">
+                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Iterando Pares Docker" width="50" height="50"/>
+                    </div>
+                    <div class="project-info">
+                        <strong>Iterando Pares Docker</strong>
+                        <span>
+                            Versión contenedorizada del scraper de PARES. Usa Docker, Redis y Tor para gestionar
+                            grandes volúmenes de URLs, mejorar el anonimato y distribuir el trabajo. Ideal para
+                            ejecutar el scraping en servidores de forma controlada y escalable.
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/0Vinylo0/proyecto_mercantil_marker" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="project-icon">
+                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Proyecto Mercantil Marker" width="50" height="50"/>
+                    </div>
+                    <div class="project-info">
+                        <strong>Proyecto Mercantil Marker</strong>
+                        <span>
+                            Proyecto orientado al tratamiento de documentos. Integra herramientas como
+                            <em>rclone</em> y Marker para convertir archivos, sincronizarlos con almacenamiento
+                            en la nube y mantener una estructura ordenada. Resulta útil para flujos de trabajo
+                            donde se manejan muchos PDFs y se requiere procesarlos de forma automática.
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <p class="projects-footer">
+                Todos estos proyectos están en constante evolución. Me gusta mejorarlos a partir del uso real,
+                añadiendo opciones de configuración, manejando más casos límite y documentando los pasos para
+                que cualquiera pueda montarlos en su propio entorno.
+            </p>
         </div>
     </div>
 
     <!-- Sección Skills -->
-    <div class="skills" id="skills" data-aos="fade-up">
-        <h1>Mis Habilidades 🛠️</h1>
-        <p>Aquí están algunas de las tecnologías y habilidades que domino, basadas en mi experiencia en GitHub.</p>
-        <div class="skills-container">
-            <a href="https://docs.aws.amazon.com/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> AWS
-            </a>
-            <a href="https://www.gnu.org/software/bash/manual/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> Bash
-            </a>
-            <a href="https://www.w3schools.com/css/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> CSS3
-            </a>
-            <a href="https://docs.docker.com/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> Docker
-            </a>
-            <a href="https://git-scm.com/doc" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="500">
-                <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> Git
-            </a>
-            <a href="https://grafana.com/docs/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="600">
-                <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="grafana" width="40" height="40"/> Grafana
-            </a>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="700">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> HTML5
-            </a>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="800">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> JavaScript
-            </a>
-            <a href="https://www.kernel.org/doc/html/latest/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="900">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> Linux
-            </a>
-            <a href="https://dev.mysql.com/doc/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1000">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> MySQL
-            </a>
-            <a href="https://nginx.org/en/docs/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1100">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> Nginx
-            </a>
-            <a href="https://docs.oracle.com/en/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1200">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> Oracle
-            </a>
-            <a href="https://docs.python.org/3/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1300">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> Python
-            </a>
-            <a href="https://www.markdownguide.org/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1400">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/markdown/markdown-original.svg" alt="markdown" width="40" height="40"/> Markdown
-            </a>
-            <a href="https://learn.microsoft.com/en-us/windows/terminal/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1500">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" alt="windows-terminal" width="40" height="40"/> Windows Terminal
-            </a>
-            <a href="https://learn.microsoft.com/en-us/powershell/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1600">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg" alt="powershell" width="40" height="40"/> PowerShell
-            </a>
-            <a href="https://httpd.apache.org/docs/" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1700">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg" alt="apache" width="40" height="40"/> Apache
-            </a>
-            <a href="https://www.cisco.com/c/en/us/support/docs.html" target="_blank" class="skill-item" data-aos="zoom-in" data-aos-delay="1800">
-                <img src="https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg" alt="cisco" width="40" height="40"/> Cisco
-            </a>
+    <div class="section skills" id="skills" data-aos="fade-up">
+        <div class="content-wrapper">
+            <h1>Mis Habilidades 🛠️</h1>
+            <p class="section-description">
+                A continuación tienes una selección de tecnologías con las que trabajo habitualmente.
+                No es solo una lista de logos: detrás de cada herramienta hay proyectos reales, servidores
+                en producción y horas de configuración, pruebas y mantenimiento.
+            </p>
+
+            <div class="skills-container">
+                <a href="https://docs.aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="50" height="50"/>
+                    <span>AWS</span>
+                </a>
+                <a href="https://www.gnu.org/software/bash/manual/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="Bash" width="50" height="50"/>
+                    <span>Bash</span>
+                </a>
+                <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" width="50" height="50"/>
+                    <span>CSS3</span>
+                </a>
+                <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker" width="50" height="50"/>
+                    <span>Docker</span>
+                </a>
+                <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="50" height="50"/>
+                    <span>Git</span>
+                </a>
+                <a href="https://grafana.com/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="350">
+                    <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana" width="50" height="50"/>
+                    <span>Grafana</span>
+                </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" width="50" height="50"/>
+                    <span>HTML5</span>
+                </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="450">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50"/>
+                    <span>JavaScript</span>
+                </a>
+                <a href="https://www.kernel.org/doc/html/latest/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="50" height="50"/>
+                    <span>Linux</span>
+                </a>
+                <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="550">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="50" height="50"/>
+                    <span>MySQL</span>
+                </a>
+                <a href="https://nginx.org/en/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="Nginx" width="50" height="50"/>
+                    <span>Nginx</span>
+                </a>
+                <a href="https://docs.oracle.com/en/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="650">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="Oracle" width="50" height="50"/>
+                    <span>Oracle</span>
+                </a>
+                <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="50" height="50"/>
+                    <span>Python</span>
+                </a>
+                <a href="https://www.markdownguide.org/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="750">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/markdown/markdown-original.svg" alt="Markdown" width="50" height="50"/>
+                    <span>Markdown</span>
+                </a>
+                <a href="https://learn.microsoft.com/en-us/windows/terminal/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" alt="Windows Terminal" width="50" height="50"/>
+                    <span>Windows Terminal</span>
+                </a>
+                <a href="https://learn.microsoft.com/en-us/powershell/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="850">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg" alt="PowerShell" width="50" height="50"/>
+                    <span>PowerShell</span>
+                </a>
+                <a href="https://httpd.apache.org/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="900">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg" alt="Apache" width="50" height="50"/>
+                    <span>Apache</span>
+                </a>
+                <a href="https://www.cisco.com/c/en/us/support/docs.html" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="950">
+                    <img src="https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg" alt="Cisco" width="50" height="50"/>
+                    <span>Cisco</span>
+                </a>
+            </div>
+
+            <p class="skills-footer">
+                Más allá de conocer los comandos, me gusta integrar estas tecnologías: por ejemplo,
+                desplegar servicios en contenedores, exponerlos detrás de Nginx, monitorizarlos con
+                Grafana y Prometheus y automatizar despliegues con scripts de shell o Python.
+            </p>
         </div>
     </div>
 
     <!-- Sección Contacto -->
-    <div id="contacto" data-aos="fade-up">
-        <h1>Contacto 📧</h1>
-        <p>¡Conéctate conmigo a través de GitHub o envíame un correo!</p>
-        <div class="contact-buttons">
-            <a href="https://github.com/0Vinylo0" target="_blank" class="contact-button" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="github" width="40" height="40"/> GitHub
-            </a>
-            <a href="mailto:andresdelpino2002@gmail.com" class="contact-button" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg" alt="email" width="40" height="40"/> Enviar Correo
-            </a>
+    <div class="section" id="contacto" data-aos="fade-up">
+        <div class="content-wrapper">
+            <h1>Contacto 📧</h1>
+            <p class="section-description">
+                Si te interesa colaborar en un proyecto, necesitas ayuda con servidores o quieres comentar
+                alguna idea técnica, puedes escribir directamente a mi correo o revisar con detalle mi perfil
+                de GitHub. Respondo especialmente a propuestas relacionadas con administración de sistemas,
+                automatización, scraping y despliegue de infraestructuras.
+            </p>
+
+            <div class="contact-buttons">
+                <a href="https://github.com/0Vinylo0" target="_blank" rel="noopener noreferrer" class="contact-button" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Perfil de GitHub" width="50" height="50"/>
+                    <span>Ver GitHub</span>
+                </a>
+                <a href="mailto:andresdelpino2002@gmail.com" class="contact-button" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg" alt="Enviar correo" width="50" height="50"/>
+                    <span>Enviar Correo</span>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Botón de modo oscuro -->
-    <button id="theme-toggle">🌙 Modo Oscuro</button>
+    <button id="theme-toggle" aria-label="Cambiar tema">🌙 Modo Oscuro</button>
 
     <!-- Scripts externos -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     <!-- Nuestro JS -->
     <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92297ba88e635ae6',t:'MTc0MjM1MDc0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
