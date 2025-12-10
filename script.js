@@ -309,3 +309,23 @@ console.log(`
 ║                                               ║
 ╚═══════════════════════════════════════════════╝
 `);
+
+// =========================
+// BANNER DE COOKIES
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("cookie-banner");
+    const btn = document.getElementById("accept-cookies");
+
+    if (!banner || !btn) return;
+
+    // Si no se han aceptado antes, mostramos el banner
+    if (!localStorage.getItem("cookiesAccepted")) {
+        banner.style.display = "block";
+    }
+
+    btn.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.style.display = "none";
+    });
+});
