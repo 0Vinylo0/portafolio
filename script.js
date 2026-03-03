@@ -157,30 +157,6 @@ AOS.init({
 });
 
 // ===================================
-// MODO OSCURO
-// ===================================
-
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// Cargar preferencia guardada
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark');
-    themeToggle.textContent = "☀️ Modo Claro";
-}
-
-themeToggle.addEventListener("click", () => {
-    body.classList.toggle("dark");
-    const isDark = body.classList.contains("dark");
-    
-    themeToggle.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
-    
-    // Guardar preferencia
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
-
-// ===================================
 // NAVEGACIÓN SUAVE POR SECCIONES
 // ===================================
 
