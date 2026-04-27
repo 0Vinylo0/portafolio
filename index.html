@@ -1,346 +1,590 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0Vinylo0 - Administrador de sistemas y desarrollador</title>
-
-    <!-- Meta información para SEO y calidad de contenido -->
-    <meta name="description" content="Portafolio de 0Vinylo0, administrador de sistemas y desarrollador. Proyectos de automatización, scraping, despliegue de infraestructuras, Docker, Linux y más.">
-    <meta name="keywords" content="0Vinylo0, administrador de sistemas, devops, python, docker, linux, scraping, infraestructura, ciberseguridad">
-    <meta name="author" content="0Vinylo0">
-
-    <!-- Librerías externas -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
-    <!-- Nuestro CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VinyloOS 96 — Linux Cyberdesk Edition</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Retro Synthwave Background (canvas) -->
-    <div id="bg-wrap" aria-hidden="true">
-        <canvas id="retro-bg"></canvas>
-        <div id="crt-overlay"></div>
+
+<!-- CRT Overlay -->
+<div id="crt-overlay"></div>
+
+<!-- Noise -->
+<div id="noise"></div>
+
+<!-- Background Canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Boot Screen -->
+<div id="boot-screen">
+  <div id="boot-logo">
+    VinyloOS 96<br>
+    <span style="font-size:0.45em;color:var(--cyan);text-shadow:0 0 15px rgba(0,255,255,0.5);">Linux Cyberdesk Edition</span>
+  </div>
+  <div id="boot-lines"></div>
+  <div id="boot-welcome"></div>
+</div>
+
+<!-- Desktop -->
+<div id="desktop">
+  <!-- Icons -->
+  <div id="desktop-icons">
+    <div class="desk-icon" onclick="openWin('terminal')">
+      <div class="icon-img">⬛</div>
+      <div class="icon-label">Terminal</div>
     </div>
-
-    <!-- Sección Home -->
-    <div class="section" id="home" data-aos="fade-up">
-        <div class="content-wrapper">
-            <img src="https://github.com/0Vinylo0.png" alt="Perfil 0Vinylo0" class="profile-img">
-            <h1>Hola, soy 0Vinylo0 <span id="rocket" class="rocket">🚀</span></h1>
-            <p class="intro-text">
-                Administrador de sistemas, desarrollador y entusiasta de la ciberseguridad.
-                Me especializo en automatización de servidores, despliegue de infraestructura,
-                observabilidad y programación eficiente en entornos Linux y cloud.
-            </p>
-            <p class="intro-text">
-                Disfruto diseñando soluciones reproducibles: desde scripts que se ejecutan solos en segundo plano
-                hasta plataformas completas montadas con contenedores, balanceadores, monitoreo y alertas.
-                En este portafolio encontrarás algunos de mis proyectos reales y las tecnologías que utilizo a diario.
-            </p>
-
-            <div class="command" id="typing-box"></div>
-
-            <!-- Slider de habilidades (Swiper) -->
-            <div class="swiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">Automatización y scripting en Linux</div>
-                    <div class="swiper-slide">Despliegue de servicios con Docker y contenedores</div>
-                    <div class="swiper-slide">Monitorización, métricas y observabilidad</div>
-                    <div class="swiper-slide">Infraestructura reproducible y despliegues automatizados</div>
-                </div>
-            </div>
-
-            <div class="links">
-                <a href="#sobre-mi">👤 Sobre mí</a>
-                <a href="#proyectos">📂 Mis Proyectos</a>
-                <a href="#skills">🛠️ Habilidades</a>
-                <a href="#contacto">📧 Contacto</a>
-                <a href="https://github.com/0Vinylo0" target="_blank" rel="noopener noreferrer">🌟 GitHub</a>
-            </div>
-        </div>
+    <div class="desk-icon" onclick="openWin('projects')">
+      <div class="icon-img">📁</div>
+      <div class="icon-label">Projects</div>
     </div>
-
-    <!-- Sección Sobre mí -->
-    <div class="section about" id="sobre-mi" data-aos="fade-up">
-        <div class="content-wrapper">
-            <h1>Sobre mí 👤</h1>
-            <div class="about-content">
-                <p>
-                    Empecé trasteando con ordenadores por curiosidad y acabé administrando servidores Linux,
-                    montando servicios web y automatizando tareas repetitivas. Me gusta entender cómo funciona
-                    todo "por debajo": redes, sistemas operativos, contenedores, métricas y seguridad.
-                </p>
-                <p>
-                    Suelo trabajar con <strong>Python</strong> para automatización y desarrollo de herramientas,
-                    <strong>Bash</strong> para scripts rápidos y <strong>Docker</strong> para desplegar entornos
-                    aislados y reproducibles. Me interesa especialmente la combinación de
-                    <strong>administración de sistemas + desarrollo</strong>, es decir, ser capaz de
-                    diseñar, desplegar y mantener una solución de principio a fin.
-                </p>
-                <p class="methodology-intro">A nivel de metodología, doy mucha importancia a:</p>
-                <ul class="about-list">
-                    <li><strong>Documentar</strong> lo que hago para que otros puedan entenderlo y reutilizarlo.</li>
-                    <li><strong>Automatizar</strong> tareas manuales y repetitivas para reducir errores.</li>
-                    <li><strong>Monitorizar</strong> servicios con métricas, logs y alertas claras.</li>
-                    <li><strong>Seguridad y buenas prácticas</strong> en red, permisos y exposición de servicios.</li>
-                </ul>
-                <p>
-                    Me motiva especialmente participar en proyectos donde pueda aportar estabilidad a la
-                    infraestructura, mejorar tiempos de despliegue y simplificar el mantenimiento del día a día.
-                </p>
-            </div>
-        </div>
+    <div class="desk-icon" onclick="openWin('about')">
+      <div class="icon-img">👤</div>
+      <div class="icon-label">About</div>
     </div>
-
-    <!-- Sección Proyectos -->
-    <div class="section projects" id="proyectos" data-aos="fade-up">
-        <div class="content-wrapper">
-            <h1>Mis Proyectos 📂</h1>
-            <p class="section-description">
-                Estos son algunos proyectos que he desarrollado y mantengo en GitHub. Todos surgen de
-                necesidades reales: automatizar tareas, procesar grandes volúmenes de datos o facilitar
-                el despliegue de servicios. Cada repositorio incluye código, documentación y ejemplos de uso.
-            </p>
-
-            <div class="projects-container">
-                <a href="https://tools.0vinylo0.xyz" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="project-icon">
-                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="Tools Web" width="50" height="50"/>
-                    </div>
-                    <div class="project-info">
-                        <strong>Tools 0Vinylo0</strong>
-                        <span>
-                            Colección de herramientas web que uso y mantengo para tareas de administración, 
-                            automatización y utilidades del día a día. Incluye utilidades para redes, gestión 
-                            de archivos, pruebas de servicios y pequeños paneles creados a medida.
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/0Vinylo0/my-script" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="project-icon">
-                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio My Script" width="50" height="50"/>
-                    </div>
-                    <div class="project-info">
-                        <strong>My Script</strong>
-                        <span>
-                            Herramienta en Python pensada para mantener sincronizados scripts locales con GitHub.
-                            Permite subir cambios de forma automatizada usando cron, registrar ejecuciones y
-                            tener siempre una copia de respaldo del código que utilizo en servidores y entornos de pruebas.
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/0Vinylo0/Iterando-Pares" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="project-icon">
-                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Iterando Pares" width="50" height="50"/>
-                    </div>
-                    <div class="project-info">
-                        <strong>Iterando Pares</strong>
-                        <span>
-                            Scraper avanzado desarrollado en Python para extraer información e imágenes del portal PARES.
-                            Incluye control de errores, paginación, almacenamiento de resultados y lógica específica
-                            para recorrer enlaces relacionados. Está pensado para trabajos de análisis y archivística.
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/0Vinylo0/Iterando-Pares-Docker" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="project-icon">
-                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Iterando Pares Docker" width="50" height="50"/>
-                    </div>
-                    <div class="project-info">
-                        <strong>Iterando Pares Docker</strong>
-                        <span>
-                            Versión contenedorizada del scraper de PARES. Usa Docker, Redis y Tor para gestionar
-                            grandes volúmenes de URLs, mejorar el anonimato y distribuir el trabajo. Ideal para
-                            ejecutar el scraping en servidores de forma controlada y escalable.
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/0Vinylo0/proyecto_mercantil_marker" target="_blank" rel="noopener noreferrer" class="project-item" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="project-icon">
-                        <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Repositorio Proyecto Mercantil Marker" width="50" height="50"/>
-                    </div>
-                    <div class="project-info">
-                        <strong>Proyecto Mercantil Marker</strong>
-                        <span>
-                            Proyecto orientado al tratamiento de documentos. Integra herramientas como
-                            <em>rclone</em> y Marker para convertir archivos, sincronizarlos con almacenamiento
-                            en la nube y mantener una estructura ordenada. Resulta útil para flujos de trabajo
-                            donde se manejan muchos PDFs y se requiere procesarlos de forma automática.
-                        </span>
-                    </div>
-                </a>
-            </div>
-
-            <p class="projects-footer">
-                Todos estos proyectos están en constante evolución. Me gusta mejorarlos a partir del uso real,
-                añadiendo opciones de configuración, manejando más casos límite y documentando los pasos para
-                que cualquiera pueda montarlos en su propio entorno.
-            </p>
-        </div>
+    <div class="desk-icon" onclick="openWin('skills')">
+      <div class="icon-img">📊</div>
+      <div class="icon-label">Sys Monitor</div>
     </div>
-
-    <!-- Sección Skills -->
-    <div class="section skills" id="skills" data-aos="fade-up">
-        <div class="content-wrapper">
-            <h1>Mis Habilidades 🛠️</h1>
-            <p class="section-description">
-                A continuación tienes una selección de tecnologías con las que trabajo habitualmente.
-                No es solo una lista de logos: detrás de cada herramienta hay proyectos reales, servidores
-                en producción y horas de configuración, pruebas y mantenimiento.
-            </p>
-
-            <div class="skills-container">
-                <a href="https://docs.aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="50" height="50"/>
-                    <span>AWS</span>
-                </a>
-                <a href="https://www.gnu.org/software/bash/manual/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="150">
-                    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="Bash" width="50" height="50"/>
-                    <span>Bash</span>
-                </a>
-                <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" width="50" height="50"/>
-                    <span>CSS3</span>
-                </a>
-                <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="250">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker" width="50" height="50"/>
-                    <span>Docker</span>
-                </a>
-                <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="50" height="50"/>
-                    <span>Git</span>
-                </a>
-                <a href="https://grafana.com/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="350">
-                    <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana" width="50" height="50"/>
-                    <span>Grafana</span>
-                </a>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" width="50" height="50"/>
-                    <span>HTML5</span>
-                </a>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="450">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50"/>
-                    <span>JavaScript</span>
-                </a>
-                <a href="https://www.kernel.org/doc/html/latest/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="500">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="50" height="50"/>
-                    <span>Linux</span>
-                </a>
-                <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="550">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="50" height="50"/>
-                    <span>MySQL</span>
-                </a>
-                <a href="https://nginx.org/en/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="600">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="Nginx" width="50" height="50"/>
-                    <span>Nginx</span>
-                </a>
-                <a href="https://docs.oracle.com/en/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="650">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="Oracle" width="50" height="50"/>
-                    <span>Oracle</span>
-                </a>
-                <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="700">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="50" height="50"/>
-                    <span>Python</span>
-                </a>
-                <a href="https://www.markdownguide.org/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="750">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/markdown/markdown-original.svg" alt="Markdown" width="50" height="50"/>
-                    <span>Markdown</span>
-                </a>
-                <a href="https://learn.microsoft.com/en-us/windows/terminal/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="800">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" alt="Windows Terminal" width="50" height="50"/>
-                    <span>Windows Terminal</span>
-                </a>
-                <a href="https://learn.microsoft.com/en-us/powershell/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="850">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg" alt="PowerShell" width="50" height="50"/>
-                    <span>PowerShell</span>
-                </a>
-                <a href="https://httpd.apache.org/docs/" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="900">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg" alt="Apache" width="50" height="50"/>
-                    <span>Apache</span>
-                </a>
-                <a href="https://www.cisco.com/c/en/us/support/docs.html" target="_blank" rel="noopener noreferrer" class="skill-item" data-aos="zoom-in" data-aos-delay="950">
-                    <img src="https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg" alt="Cisco" width="50" height="50"/>
-                    <span>Cisco</span>
-                </a>
-            </div>
-
-            <p class="skills-footer">
-                Más allá de conocer los comandos, me gusta integrar estas tecnologías: por ejemplo,
-                desplegar servicios en contenedores, exponerlos detrás de Nginx, monitorizarlos con
-                Grafana y Prometheus y automatizar despliegues con scripts de shell o Python.
-            </p>
-        </div>
+    <div class="desk-icon" onclick="openWin('linux')">
+      <div class="icon-img">🐧</div>
+      <div class="icon-label">Linux Lab</div>
     </div>
-
-    <!-- Sección Contacto -->
-    <div class="section" id="contacto" data-aos="fade-up">
-        <div class="content-wrapper">
-            <h1>Contacto 📧</h1>
-            <p class="section-description">
-                Si te interesa colaborar en un proyecto, necesitas ayuda con servidores o quieres comentar
-                alguna idea técnica, puedes escribir directamente a mi correo o revisar con detalle mi perfil
-                de GitHub. Respondo especialmente a propuestas relacionadas con administración de sistemas,
-                automatización, scraping y despliegue de infraestructuras.
-            </p>
-
-            <div class="contact-buttons">
-                <a href="https://github.com/0Vinylo0" target="_blank" rel="noopener noreferrer" class="contact-button" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Perfil de GitHub" width="50" height="50"/>
-                    <span>Ver GitHub</span>
-                </a>
-                <a href="mailto:andresdelpino2002@gmail.com" class="contact-button" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg" alt="Enviar correo" width="50" height="50"/>
-                    <span>Enviar Correo</span>
-                </a>
-            </div>
-        </div>
+    <div class="desk-icon" onclick="openWin('clab')">
+      <div class="icon-img">⚙️</div>
+      <div class="icon-label">C Lab</div>
     </div>
-        <!-- Banner de Cookies estilo terminal -->
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-inner">
-            <span class="cookie-prompt">$ aviso_cookies:</span>
-            <span class="cookie-text">
-                Este sitio usa solo cookies técnicas (por ejemplo, para recordar el modo oscuro).
-                No se usan cookies de analítica ni publicidad.
-            </span>
-            <button id="accept-cookies" class="cookie-btn">[ Aceptar ]</button>
-        </div>
+    <div class="desk-icon" onclick="openWin('concurrency')">
+      <div class="icon-img">🔀</div>
+      <div class="icon-label">Concurrency</div>
     </div>
-
-<footer class="legal-footer">
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <span class="brand-name">0Vinylo0</span>
-            <span class="brand-role">// sysadmin &amp; developer</span>
-        </div>
-        <div class="footer-divider">· · · · · · · · · · · · · · · · · ·</div>
-        <div class="footer-links-row">
-            <span class="legal-prefix">$ cat</span>
-            <a href="legal.html#politica-privacidad">politica_privacidad.txt</a>
-            <span class="sep">·</span>
-            <a href="legal.html#aviso-legal">aviso_legal.txt</a>
-        </div>
-        <div class="footer-copy">
-            &copy; <span class="copy-year">2025</span> 0Vinylo0 &mdash; Hecho con Linux, café y demasiados tabs abiertos.
-        </div>
+    <div class="desk-icon" onclick="openWin('network')">
+      <div class="icon-img">🌐</div>
+      <div class="icon-label">Network</div>
     </div>
-</footer>
+    <div class="desk-icon" onclick="openWin('contact')">
+      <div class="icon-img">📡</div>
+      <div class="icon-label">Contact</div>
+    </div>
+    <div class="desk-icon" onclick="window.open('https://github.com/0Vinylo0','_blank')">
+      <div class="icon-img">🐙</div>
+      <div class="icon-label">GitHub</div>
+    </div>
+  </div>
 
-    <!-- Botón FX retro (fondo + CRT) -->
-    <button id="fx-toggle" aria-label="Activar o desactivar efectos visuales" aria-pressed="true">✨ FX ON</button>
+  <!-- ══ TERMINAL WINDOW ══ -->
+  <div class="win" id="win-terminal" style="top:60px;left:160px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-terminal')">
+      <span class="win-title-icon">⬛</span>
+      <span class="win-title-text">terminal — bash — 0Vinylo0@VinyloOS</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-terminal')">_</div>
+        <div class="win-btn" onclick="maxWin('win-terminal')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-terminal')">✕</div>
+      </div>
+    </div>
+    <div class="win-menubar">
+      <span class="win-menu-item">File</span>
+      <span class="win-menu-item">Edit</span>
+      <span class="win-menu-item">View</span>
+      <span class="win-menu-item">Help</span>
+    </div>
+    <div class="win-body">
+      <div class="terminal-area">
+        <div class="terminal-output" id="term-output"></div>
+        <div class="terminal-input-row">
+          <span class="t-prompt-live">0Vinylo0@VinyloOS:~$&nbsp;</span>
+          <input type="text" id="term-input" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>bash 5.2.0 • VinyloOS kernel 6.6-retro</span>
+      <span id="term-status">READY</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-terminal')">◢</div>
+  </div>
 
-    <!-- Scripts externos -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- ══ ABOUT WINDOW ══ -->
+  <div class="win" id="win-about" style="top:80px;left:200px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-about')">
+      <span class="win-title-icon">👤</span>
+      <span class="win-title-text">/home/vinylo/about.txt — TextViewer</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-about')">_</div>
+        <div class="win-btn" onclick="maxWin('win-about')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-about')">✕</div>
+      </div>
+    </div>
+    <div class="win-menubar">
+      <span class="win-menu-item">File</span>
+      <span class="win-menu-item">View</span>
+    </div>
+    <div class="win-body">
+      <div class="file-viewer">
+        <div class="file-header">
+          # /home/vinylo/about.txt<br>
+          # Last modified: 2025-01-01 &nbsp;|&nbsp; Owner: 0Vinylo0 &nbsp;|&nbsp; Permissions: -rw-r--r--
+        </div>
+        <div style="color:var(--text);line-height:1.9;">
+          Administrador de sistemas y desarrollador backend.<br>
+          Trabajo con <span style="color:var(--cyan)">Linux</span>, <span style="color:var(--cyan)">Python</span>, <span style="color:var(--cyan)">Bash</span>, <span style="color:var(--cyan)">Docker</span>, <span style="color:var(--cyan)">Nginx</span>,<br>
+          bases de datos, scraping, automatización, observabilidad<br>
+          y despliegue de servicios en infraestructura propia.<br><br>
+          Actualmente reforzando conocimientos de <span style="color:#ffdd00">C</span>, <span style="color:#ffdd00">concurrencia</span>,<br>
+          procesos, hilos, memoria, <span style="color:#ffdd00">pthreads</span> y sistemas de bajo nivel.
+        </div>
 
-    <!-- Nuestro JS -->
-    <script src="retro-bg.js"></script>
-    <script src="script.js"></script>
+        <div class="file-section-title">// Stack principal</div>
+        <div class="tag-list">
+          <span class="tag">Linux</span>
+          <span class="tag">Python</span>
+          <span class="tag">Bash</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Git</span>
+          <span class="tag">Scraping</span>
+          <span class="tag">Observabilidad</span>
+        </div>
+
+        <div class="file-section-title">// Aprendiendo</div>
+        <div class="tag-list">
+          <span class="tag learning">C</span>
+          <span class="tag learning">pthreads</span>
+          <span class="tag learning">Concurrencia</span>
+          <span class="tag learning">Sistemas bajo nivel</span>
+          <span class="tag learning">Memoria dinámica</span>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>about.txt — 247 bytes</span>
+      <span>UTF-8</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-about')">◢</div>
+  </div>
+
+  <!-- ══ PROJECTS WINDOW ══ -->
+  <div class="win" id="win-projects" style="top:90px;left:220px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-projects')">
+      <span class="win-title-icon">📁</span>
+      <span class="win-title-text">/home/vinylo/projects — FileManager</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-projects')">_</div>
+        <div class="win-btn" onclick="maxWin('win-projects')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-projects')">✕</div>
+      </div>
+    </div>
+    <div class="win-menubar">
+      <span class="win-menu-item">File</span>
+      <span class="win-menu-item">View</span>
+      <span class="win-menu-item">Go</span>
+    </div>
+    <div class="win-body">
+      <div class="proj-grid">
+        <div style="font-size:10px;color:var(--text-dim);padding:4px 8px;border-bottom:1px solid var(--border-dim);margin-bottom:4px;">
+          📂 /home/vinylo/projects — 7 items
+        </div>
+
+        <a class="proj-item" href="https://tools.0vinylo0.xyz" target="_blank">
+          <span class="proj-icon">🌐</span>
+          <div class="proj-info">
+            <div class="proj-name">Tools 0Vinylo0</div>
+            <div class="proj-desc">Herramientas web personales — tools.0vinylo0.xyz</div>
+          </div>
+          <span class="proj-badge live">LIVE</span>
+        </a>
+
+        <a class="proj-item" href="https://github.com/0Vinylo0/my-script" target="_blank">
+          <span class="proj-icon">📜</span>
+          <div class="proj-info">
+            <div class="proj-name">My Script</div>
+            <div class="proj-desc">Colección de scripts Bash / automatización Linux</div>
+          </div>
+          <span class="proj-badge live">GH</span>
+        </a>
+
+        <a class="proj-item" href="https://github.com/0Vinylo0/Iterando-Pares" target="_blank">
+          <span class="proj-icon">🔢</span>
+          <div class="proj-info">
+            <div class="proj-name">Iterando Pares</div>
+            <div class="proj-desc">Algoritmo de iteración — Python backend</div>
+          </div>
+          <span class="proj-badge live">GH</span>
+        </a>
+
+        <a class="proj-item" href="https://github.com/0Vinylo0/Iterando-Pares-Docker" target="_blank">
+          <span class="proj-icon">🐳</span>
+          <div class="proj-info">
+            <div class="proj-name">Iterando Pares Docker</div>
+            <div class="proj-desc">Versión containerizada con Docker Compose</div>
+          </div>
+          <span class="proj-badge live">GH</span>
+        </a>
+
+        <a class="proj-item" href="https://github.com/0Vinylo0/proyecto_mercantil_marker" target="_blank">
+          <span class="proj-icon">📊</span>
+          <div class="proj-info">
+            <div class="proj-name">Proyecto Mercantil Marker</div>
+            <div class="proj-desc">Scraping, análisis de datos y marcadores</div>
+          </div>
+          <span class="proj-badge live">GH</span>
+        </a>
+
+        <div class="proj-item" style="cursor:default;opacity:0.6;">
+          <span class="proj-icon">⚡</span>
+          <div class="proj-info">
+            <div class="proj-name">Distributed Task System</div>
+            <div class="proj-desc">Sistema de tareas distribuidas con workers y colas</div>
+          </div>
+          <span class="proj-badge wip">WIP</span>
+        </div>
+
+        <div class="proj-item" style="cursor:default;opacity:0.6;">
+          <span class="proj-icon">🔧</span>
+          <div class="proj-info">
+            <div class="proj-name">C Concurrency Lab</div>
+            <div class="proj-desc">Experimentos con pthreads, mutexes y semáforos</div>
+          </div>
+          <span class="proj-badge concept">CONCEPT</span>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>5 proyectos activos · 2 en desarrollo</span>
+      <span>github.com/0Vinylo0</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-projects')">◢</div>
+  </div>
+
+  <!-- ══ SKILLS MONITOR ══ -->
+  <div class="win" id="win-skills" style="top:70px;left:240px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-skills')">
+      <span class="win-title-icon">📊</span>
+      <span class="win-title-text">System Monitor — Skills & Performance</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-skills')">_</div>
+        <div class="win-btn" onclick="maxWin('win-skills')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-skills')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="sysmon">
+        <div class="sysmon-header">
+          0Vinylo0@VinyloOS — top — Skills Performance Monitor — updated: <span id="skills-time">--:--:--</span>
+        </div>
+        <div id="skills-container"></div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>10 skills monitoreadas</span>
+      <span>portfolio.service RUNNING</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-skills')">◢</div>
+  </div>
+
+  <!-- ══ LINUX LAB ══ -->
+  <div class="win" id="win-linux" style="top:100px;left:200px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-linux')">
+      <span class="win-title-icon">🐧</span>
+      <span class="win-title-text">Linux Lab — /home/vinylo/linux</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-linux')">_</div>
+        <div class="win-btn" onclick="maxWin('win-linux')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-linux')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="lab-content">
+        <div class="lab-section">
+          <div class="lab-section-title">// Administración de sistemas</div>
+          <div class="lab-item">Gestión de servicios con systemd</div>
+          <div class="lab-item">Configuración avanzada de Nginx</div>
+          <div class="lab-item">Administración de usuarios y permisos</div>
+          <div class="lab-item">Tuning del kernel con sysctl</div>
+          <div class="lab-item">Monitorización con htop, iotop, netstat</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Automatización &amp; Scripting</div>
+          <div class="lab-item">Bash scripts para administración</div>
+          <div class="lab-item">Cron jobs y tareas programadas</div>
+          <div class="lab-item">Pipelines de CI/CD self-hosted</div>
+          <div class="lab-item">Scraping con Python + BeautifulSoup</div>
+          <div class="lab-item">APIs REST con FastAPI / Flask</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Infraestructura &amp; Contenedores</div>
+          <div class="lab-item">Docker y Docker Compose</div>
+          <div class="lab-item">Redes de contenedores y volúmenes</div>
+          <div class="lab-item">Reverse proxy con Nginx + SSL</div>
+          <div class="lab-item">Self-hosted services en VPS</div>
+          <div class="lab-item">Observabilidad: logs, métricas, alertas</div>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>linux.lab — loaded</span>
+      <span>kernel 6.6-retro</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-linux')">◢</div>
+  </div>
+
+  <!-- ══ C LAB ══ -->
+  <div class="win" id="win-clab" style="top:80px;left:180px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-clab')">
+      <span class="win-title-icon">⚙️</span>
+      <span class="win-title-text">C Lab — gcc 13.2 — /home/vinylo/c</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-clab')">_</div>
+        <div class="win-btn" onclick="maxWin('win-clab')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-clab')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="lab-content">
+        <div class="lab-section">
+          <div class="lab-section-title">// Fundamentos</div>
+          <div class="lab-item">Punteros y aritmética de punteros</div>
+          <div class="lab-item">Gestión de memoria dinámica (malloc/free)</div>
+          <div class="lab-item">Structs, unions y enums</div>
+          <div class="lab-item">Compilación con gcc y flags de optimización</div>
+          <div class="lab-item">Makefiles y sistemas de build</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Sistemas POSIX</div>
+          <div class="lab-item">Procesos: fork(), exec(), wait()</div>
+          <div class="lab-item">Señales y manejo de interrupciones</div>
+          <div class="lab-item">File descriptors y I/O de bajo nivel</div>
+          <div class="lab-item">Sockets básicos (TCP/UDP)</div>
+          <div class="lab-item">pthreads: creación y sincronización</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Snippet: hola mundo con puntero</div>
+          <pre class="code-snip"><span class="cm">// hello_ptr.c</span>
+<span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> x = 42;
+    <span class="kw">int</span> *ptr = &amp;x;
+    <span class="fn">printf</span>(<span class="str">"val=%d addr=%p\n"</span>, *ptr, ptr);
+    <span class="kw">return</span> 0;
+}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>c.lab — gcc 13.2.0</span>
+      <span>learning mode</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-clab')">◢</div>
+  </div>
+
+  <!-- ══ CONCURRENCY LAB ══ -->
+  <div class="win" id="win-concurrency" style="top:90px;left:200px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-concurrency')">
+      <span class="win-title-icon">🔀</span>
+      <span class="win-title-text">Concurrency Lab — threads, locks, semaphores</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-concurrency')">_</div>
+        <div class="win-btn" onclick="maxWin('win-concurrency')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-concurrency')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="lab-content">
+        <div class="lab-section">
+          <div class="lab-section-title">// Concurrencia básica</div>
+          <div class="lab-item">Procesos e hilos (fork vs pthread)</div>
+          <div class="lab-item">Mutexes — exclusión mutua</div>
+          <div class="lab-item">Semáforos POSIX</div>
+          <div class="lab-item">Locks y spinlocks</div>
+          <div class="lab-item">Variables de condición</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Problemas clásicos</div>
+          <div class="lab-item">Race conditions y cómo evitarlas</div>
+          <div class="lab-item">Deadlocks y livelock</div>
+          <div class="lab-item">Starvation y prioridad</div>
+          <div class="lab-item">Problema productor-consumidor</div>
+          <div class="lab-item">Lectores-escritores</div>
+        </div>
+        <div class="lab-section">
+          <div class="lab-section-title">// Alto nivel</div>
+          <div class="lab-item">Async/await en Python (asyncio)</div>
+          <div class="lab-item">Multiprocessing y Pool</div>
+          <div class="lab-item">Workers distribuidos</div>
+          <div class="lab-item">Colas de tareas (Celery, RQ)</div>
+          <div class="lab-item">Thread pools y executors</div>
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>concurrency.lab</span>
+      <span>pthreads 2.38</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-concurrency')">◢</div>
+  </div>
+
+  <!-- ══ NETWORK ══ -->
+  <div class="win" id="win-network" style="top:120px;left:220px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-network')">
+      <span class="win-title-icon">🌐</span>
+      <span class="win-title-text">Network Monitor — ifconfig / netstat</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-network')">_</div>
+        <div class="win-btn" onclick="maxWin('win-network')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-network')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="netmon">
+        <div class="sysmon-header">Network interfaces — VinyloOS 96</div>
+        <div class="net-row"><span class="net-label">Interface</span><span class="net-val">eth0 (VirtNet)</span></div>
+        <div class="net-row"><span class="net-label">IP Address</span><span class="net-val">192.168.1.x / 24</span></div>
+        <div class="net-row"><span class="net-label">Gateway</span><span class="net-val">192.168.1.1</span></div>
+        <div class="net-row"><span class="net-label">DNS</span><span class="net-val">1.1.1.1 / 8.8.8.8</span></div>
+        <div class="net-row"><span class="net-label">SSH</span><span class="net-val" style="color:var(--green)">● ACTIVE (port 22)</span></div>
+        <div class="net-row"><span class="net-label">Nginx</span><span class="net-val" style="color:var(--green)">● RUNNING (80/443)</span></div>
+        <div class="net-row"><span class="net-label">Docker</span><span class="net-val" style="color:var(--green)">● UP — 4 containers</span></div>
+        <div class="net-row"><span class="net-label">Firewall</span><span class="net-val">ufw ACTIVE</span></div>
+        <div class="net-anim" id="net-scroll">
+          &gt; PING github.com ... 28ms &nbsp;|&nbsp; PING 8.8.8.8 ... 12ms &nbsp;|&nbsp; HTTP 200 tools.0vinylo0.xyz &nbsp;|&nbsp; SSH session OK &nbsp;|&nbsp;
+        </div>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>network.monitor</span>
+      <span id="net-pkts">0 pkts</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-network')">◢</div>
+  </div>
+
+  <!-- ══ CONTACT ══ -->
+  <div class="win" id="win-contact" style="top:110px;left:220px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-contact')">
+      <span class="win-title-icon">📡</span>
+      <span class="win-title-text">ssh contact@vinylo — Secure Connection</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-contact')">_</div>
+        <div class="win-btn" onclick="maxWin('win-contact')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-contact')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="ssh-view">
+        <div class="ssh-prompt">
+          $ ssh contact@vinylo<br>
+          <span style="color:var(--text-dim)">Authenticating... Host key fingerprint verified.</span><br>
+          <span style="color:var(--green)">Connection established ✓</span>
+        </div>
+        <div class="ssh-banner">
+          ╔══════════════════════════════════════════╗<br>
+          ║  VinyloOS 96 — Contact Interface v1.0    ║<br>
+          ║  Authorized access only                  ║<br>
+          ╚══════════════════════════════════════════╝<br>
+          <br>
+          Welcome, visitor. Choose a contact channel:
+        </div>
+
+        <a class="ssh-link" href="https://github.com/0Vinylo0" target="_blank">
+          <span class="ssh-link-icon">🐙</span>
+          <div class="ssh-link-info">
+            <div class="ssh-link-label">GitHub Profile</div>
+            <div class="ssh-link-val">github.com/0Vinylo0</div>
+          </div>
+          <span style="color:var(--text-dim);font-size:11px;">[open]</span>
+        </a>
+
+        <a class="ssh-link" href="mailto:andresdelpino2002@gmail.com">
+          <span class="ssh-link-icon">📧</span>
+          <div class="ssh-link-info">
+            <div class="ssh-link-label">Email</div>
+            <div class="ssh-link-val">andresdelpino2002@gmail.com</div>
+          </div>
+          <span style="color:var(--text-dim);font-size:11px;">[mail]</span>
+        </a>
+      </div>
+    </div>
+    <div class="win-statusbar">
+      <span>ssh session active</span>
+      <span>encrypted</span>
+    </div>
+    <div class="win-resize" onmousedown="startResize(event,'win-contact')">◢</div>
+  </div>
+
+  <!-- ══ LEGAL ══ -->
+  <div class="win" id="win-legal" style="top:130px;left:210px;">
+    <div class="win-titlebar" onmousedown="startDrag(event,'win-legal')">
+      <span class="win-title-icon">📄</span>
+      <span class="win-title-text">/etc/vinylo/legal — Aviso Legal</span>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minWin('win-legal')">_</div>
+        <div class="win-btn" onclick="maxWin('win-legal')">□</div>
+        <div class="win-btn close" onclick="closeWin('win-legal')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="legal-text">
+        <h3>// politica_privacidad.txt</h3>
+        <p>Esta web no recopila datos personales de forma activa. No se utilizan sistemas de analítica de terceros. Las cookies son exclusivamente técnicas y necesarias para el funcionamiento básico del sitio.</p>
+        <h3>// aviso_legal.txt</h3>
+        <p>Titular: 0Vinylo0 (Andrés del Pino). Dominio: 0vinylo0.xyz. El contenido de esta web es de carácter informativo y personal. Todos los proyectos enlazados pertenecen a sus respectivos autores.</p>
+        <h3>// cookies.txt</h3>
+        <p>Solo se utilizan cookies técnicas estrictamente necesarias para recordar preferencias visuales (FX ON/OFF). No se comparte información con terceros.</p>
+        <p><a href="mailto:andresdelpino2002@gmail.com">Contacto: andresdelpino2002@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="win-statusbar"><span>legal — read-only</span></div>
+    <div class="win-resize" onmousedown="startResize(event,'win-legal')">◢</div>
+  </div>
+
+</div><!-- /desktop -->
+
+<!-- Taskbar -->
+<div id="taskbar">
+  <button id="start-btn" onclick="toggleStartMenu()">
+    🐧 <span class="start-label">VinyloOS</span>
+  </button>
+  <div id="taskbar-apps"></div>
+  <div id="taskbar-right">
+    <div id="status-dot"></div>
+    <span id="status-text">portfolio.service</span>
+    <button id="fx-btn" onclick="toggleFX()">FX ON</button>
+    <div id="clock">--:--:--</div>
+  </div>
+</div>
+
+<!-- Start Menu -->
+<div id="start-menu">
+  <div class="start-menu-banner">
+    <div class="os-name">VinyloOS 96</div>
+    <div class="os-sub">Linux Cyberdesk Edition — TechnoWM</div>
+  </div>
+  <div class="start-menu-item" onclick="openWin('terminal');toggleStartMenu()"><span class="sm-icon">⬛</span> Terminal</div>
+  <div class="start-menu-item" onclick="openWin('projects');toggleStartMenu()"><span class="sm-icon">📁</span> Proyectos</div>
+  <div class="start-menu-item" onclick="openWin('about');toggleStartMenu()"><span class="sm-icon">👤</span> About Me</div>
+  <div class="start-menu-item" onclick="openWin('skills');toggleStartMenu()"><span class="sm-icon">📊</span> Sys Monitor</div>
+  <div class="start-menu-item" onclick="openWin('linux');toggleStartMenu()"><span class="sm-icon">🐧</span> Linux Lab</div>
+  <div class="start-menu-item" onclick="openWin('clab');toggleStartMenu()"><span class="sm-icon">⚙️</span> C Lab</div>
+  <div class="start-menu-item" onclick="openWin('concurrency');toggleStartMenu()"><span class="sm-icon">🔀</span> Concurrency Lab</div>
+  <div class="start-menu-item" onclick="openWin('network');toggleStartMenu()"><span class="sm-icon">🌐</span> Network</div>
+  <div class="start-menu-item" onclick="openWin('contact');toggleStartMenu()"><span class="sm-icon">📡</span> Contact</div>
+  <div class="start-menu-sep"></div>
+  <div class="start-menu-item" onclick="openWin('legal');toggleStartMenu()"><span class="sm-icon">📄</span> Aviso Legal</div>
+  <div class="start-menu-item" onclick="window.open('https://github.com/0Vinylo0','_blank');toggleStartMenu()"><span class="sm-icon">🐙</span> GitHub</div>
+  <div class="start-menu-sep"></div>
+  <div class="start-menu-item" onclick="toggleFX();toggleStartMenu()"><span class="sm-icon">✨</span> Toggle FX</div>
+</div>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+  <span>⚡ <b>VinyloOS 96</b> usa cookies técnicas para recordar tus preferencias visuales. Sin tracking, sin publicidad.</span>
+  <button class="cookie-btn accept" onclick="acceptCookies()">[ ACCEPT ]</button>
+  <button class="cookie-btn deny" onclick="denyCookies()">[ DENY ]</button>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
